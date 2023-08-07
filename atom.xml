@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>1985-10-26T08:15:00.000Z</updated>
+  <updated>2023-07-27T02:41:22.419Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2023/08/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://example.com/2023/08/07/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</id>
+    <published>2023-08-07T06:11:05.948Z</published>
+    <updated>2023-07-27T02:41:22.419Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="深入理解计算机系统"><a href="#深入理解计算机系统" class="headerlink" title="深入理解计算机系统"></a>深入理解计算机系统</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">文件是对I/O设备的抽象</span><br><span class="line">虚拟内存是对主存和I/O设备的抽象（程序存储器）</span><br><span class="line">进程是对处理器，主存和I/O设备的抽象（一个正在运行的程序）</span><br><span class="line">虚拟机是对整个计算机的抽象（操作系统，处理器，主存，I/O设备）</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">逻辑表达式和位级运算</span><br><span class="line">1.逻辑表达式认为非0的参数都表示TRUE，按位运行只有参数为0或1才和逻辑运算有相同的行为</span><br><span class="line">2.如果对第一个参数求值就能确定表达式的结果，那么逻辑运算符就不会对第二个参数求值</span><br></pre></td></tr></table></figure><h4 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h4><h5 id="虚拟内存作为缓存的工具"><a href="#虚拟内存作为缓存的工具" class="headerlink" title="虚拟内存作为缓存的工具"></a>虚拟内存作为缓存的工具</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">虚拟页（VP），存储在磁盘中。未分配，已缓存，未缓存</span><br><span class="line">物理页（PP），缓存在DRAM中，虚拟页已缓存的数据出现在物理页中</span><br></pre></td></tr></table></figure><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230726171840605.png" alt="image-20230726171840605"></p><h5 id="虚拟内存作为内存保护的工具"><a href="#虚拟内存作为内存保护的工具" class="headerlink" title="虚拟内存作为内存保护的工具"></a>虚拟内存作为内存保护的工具</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.内存隔离</span><br><span class="line">每个进程都有自己独立的虚拟地址空间，使进程直接彼此隔离</span><br><span class="line">2.内存访问权限</span><br><span class="line">虚拟内存运行操作系统为每个页面设置不同的访问权限，如只读、只写、执行等</span><br><span class="line">3.页面错误处理</span><br><span class="line">在虚拟内存中，当一个进程访问未加载到物理内存或不存在的页面时，产生页面错误，操作系统会捕获这些错误并采取相应的措施</span><br><span class="line">4.内存限制和资源管理</span><br><span class="line">虚拟内存允许操作系统对进程分配的虚拟地址空间进行精确的管理。如设定地址空间的大小、内存分配和回收等。避免进程占用过多的内存资源</span><br></pre></td></tr></table></figure><h5 id="页框，页面，页框号"><a href="#页框，页面，页框号" class="headerlink" title="页框，页面，页框号"></a>页框，页面，页框号</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">页框：将内存空间分为一个个大小相等的分区，每个分区就是一个页框</span><br><span class="line">页面：将进程的逻辑地址空间分为和页框大小相等的一个个部分，每个部分称为页或页面</span><br></pre></td></tr></table></figure><h5 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">VM需要判断一个VP是否缓存在DRAM中的某个地方。</span><br><span class="line">如果是，还需要判断在哪个PP中。</span><br><span class="line">如果不命中，系统必须判断这个VP存放在磁盘哪个位置，在物理内存中选择一个牺牲页，将VP从磁盘复制到DRAM中，替换这个牺牲页</span><br></pre></td></tr></table></figure><p>​1.一个进程对应一张页表</p><p>​2.进程的每个页面对应一个页表项</p><p>​3.每个页表项又页号和块号组成</p><p>​4.页表记录进程页面和实际存放的内存快之间的映射关系</p><h5 id="多级页表"><a href="#多级页表" class="headerlink" title="多级页表"></a>多级页表</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">基于32位的地址空间，一个页面4KB，一个PTE4B，则一个进程有4MB的页表驻留在主存中</span><br><span class="line"></span><br><span class="line">使用分级页表：</span><br><span class="line">一级页表每个页表项负责映射这个虚拟地址空间中一个4MB的片，每一片是由1024个连续页面组成</span><br><span class="line">二级页表每个页表项负责映射一个4KB的虚拟内存页面</span><br><span class="line">使用4字节的PTE，一级页表和二级页表都是一个页面的大小</span><br><span class="line"></span><br><span class="line">这种方法从两个方面减少了内存要求：</span><br><span class="line">1.如果一级页表的一个PTE是空的，对应的二级页表不会存在</span><br><span class="line">2.只有一级页表总是在主存中，经常使用的二级页表才会缓存在主存中</span><br></pre></td></tr></table></figure><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230727093639086.png" alt="image-20230727093639086"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;深入理解计算机系统&quot;&gt;&lt;a href=&quot;#深入理解计算机系统&quot; class=&quot;headerlink&quot; title=&quot;深入理解计算机系统&quot;&gt;&lt;/a&gt;深入理解计算机系统&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;t</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
